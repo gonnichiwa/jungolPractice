@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>정보올림피아드 문제 풀이</title>
+</head>
+<body>
+	<h3>501: 출력 - 자가진단 1</h3><br/>
+	<h5>아래 "출력 예"와 같이 출력되는 프로그램을 작성하시오.</h5>
+	<h6>출력 예 : </h6><p/>
+	<h6>Fun Programming!</h6>
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<button onclick="solve();">출력</button>
+	<p id="result501"></p>
+
+	<script>
+		// javaScript 작성
+		function solve(){
+			var text = "Fun Programming!";
+			document.getElementById('result501').innerHTML = text;
+		}
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+	<h3>533 : 선택제어문 - 자가진단 6</h3><br/>
+	<h5>남자는 'M' 여자는 'F'로 나타내기로 하고 18세 이상을 성인이라고 하자. 성별('M', 'F')과 나이를 입력받아 "MAN"(성인남자), "WOMAN"(성인여자), "BOY"(미성년남자), "GIRL"(미성년여자)을 구분하여 출력하는 프로그램을 작성하시오.</h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>F 15</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>GIRL</h6>
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- ===================== 문제 풀기 ===================== -->
+	
+	<!-- 입력 -->
+	성별 : <input type="text" id="gender"/>
+	나이 : <input type="text" id="age"/>
+
+	<button onclick="solve();">출력</button>
+	<p id="result533"></p>
+
+	<script>
+		// javaScript 작성
+		function solve(){
+			var gender = document.getElementById('gender').value;
+			var age = document.getElementById('age').value;
+
+			console.log("gender : " + gender);
+			console.log("age : " + age);
+			// 18 세 이상은 성인으로 구분하기 때문에
+			// 성인 구분 기준을 적는다
+			var adultAge = 18;
+			// 출력 데이터 준비
+			var man = "MAN";
+			var woman = "woman";
+			var boy = "boy";
+			var girl = "girl";
+
+			// 18 세 이상 일 때 
+			if(age >= 18){
+				// 남자인 경우
+				if(gender == "M"){
+					document.getElementById('result533').innerHTML = man;
+				}
+				// 여자인 경우
+				if(gender == "F"){
+					document.getElementById('result533').innerHTML = woman;
+				}
+			}
+
+			if(age < 18){
+				// 남자인 경우
+				if(gender == "M"){
+					document.getElementById('result533').innerHTML = boy;
+				}
+				// 여자인 경우
+				if(gender == "F"){
+					document.getElementById('result533').innerHTML = girl;
+				}
+			}
+		}
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+<h3>528 : 선택제어문 - 자가진단1</h3><br/>
+	<h5>정수를 입력받아 첫 줄에 입력 받은 숫자를 출력하고 둘째 줄에 음수이면 “minus” 라고 출력하는 프로그램을 작성하시오.</h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>-5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>-5<p/>
+	minus</h6>
+	<h6>입력 예 : </h6><p/>
+	<h6>5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>5</h6>
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<!-- 
+		1. 정수를 입력받는다.
+		2. 입력받은 숫자를 출력
+		3. 음수이면 둘째줄에 'minus' 라고 출력
+	-->
+
+	<!-- 1. 정수를 입력받는다. -->
+	<input type="text" id="input"/>
+	<button onclick="solve3();">출력</button>
+
+	<!-- 2. 입력받은 숫자를 출력 -->
+	<p id="result528"></p>
+	<p id="result528-1"></p>
+
+	<script>
+		// javaScript 작성
+		function solve3(){
+			var inputNumber = document.getElementById('input').value;	
+			console.log(inputNumber);
+
+			// 3. 음수이면 minus라고 출력
+			if(inputNumber < 0){
+				// 음수일 경우
+				// 입력받은 숫자 출력
+				document.getElementById('result528').innerHTML = inputNumber;
+				// minus라고 출력
+				document.getElementById('result528-1').innerHTML = "minus";
+			}
+
+			// 양수일 경우 그대로 출력만 할 것
+			if(inputNumber > 0){
+				document.getElementById('result528').innerHTML = inputNumber;
+			}
+		}
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+</body>
+</html>
