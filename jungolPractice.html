@@ -167,5 +167,62 @@
 	</script>
 
 <hr/><!--문제구분 하는 hr태그 -->
+<h3>531 : 선택제어문 - 자가진단4</h3><br/>
+	<h5>복싱체급은 몸무게가 50.80kg 이하를 Flyweight 61.23kg 이하를 Lightweight, 72.57kg 이하를 Middleweight, 88.45kg 이하를 Cruiserweight, 88.45kg 초과를 Heavyweight라고 하자.
+몸무게를 입력받아 체급을 출력하는 프로그램을 작성하시오.</h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>87.3</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>Cruiserweight</h6>
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<!-- 입력부 -->
+	몸무게 : <input type="text" id="weight2"/><p/>
+	<button onclick="solve531()">입력</button>
+
+	<!-- 출력부 -->
+	<p id="result531"></p>
+
+	<script>
+		function solve531(){
+			// 입력받은 데이터
+            var Kg = parseFloat(document.getElementById('weight2').value);
+
+            // 기준 데이터를 다 상수로 설정!
+            var FLY_WEIGHT = 50.80;
+            var LIGHT_WEIGHT = 61.23;
+            var MIDDLE_WEIGHT = 72.57;
+            var CRUISER_WEIGHT = 88.45;
+            // curiserWeiger 이상은 다 heavyWeight
+
+            var FLY_WEIGHT_STR = "Flyweight";
+            var LIGHT_WEIGHT_STR = "Lightweight";
+            var MIDDLE_WEIGHT_STR = "Middleweight";
+            var CRUISER_WEIGHT_STR = "Cruiserweight";
+            var HEAVY_WEIGHT_STR = "Heavyweight";
+            var ERROR_STR = "Error";
+
+            var outputID = "result531";
+
+            console.log('weight2 : ' + Kg);
+
+            if (Kg <= FLY_WEIGHT) {
+                document.getElementById(outputID).innerHTML = FLY_WEIGHT_STR;
+            } else if (Kg <= LIGHT_WEIGHT && Kg > FLY_WEIGHT) {
+                document.getElementById(outputiD).innerHTML = LIGHT_WEIGHT_STR;
+            } else if (Kg <= MIDDLE_WEIGHT && Kg > LIGHT_WEIGHT) {
+                document.getElementById(outputiD).innerHTML = MIDDLE_WEIGHT_STR;
+            } else if (Kg <= CRUISER_WEIGHT && Kg > MIDDLE_WEIGHT) {
+                document.getElementById(outputiD).innerHTML = CRUISER_WEIGHT_STR;
+            } else if (Kg > CRUISER_WEIGHT) {
+                document.getElementById(outputiD).innerHTML = HEAVY_WEIGHT_STR;
+            } else {
+                document.getElementById(outputiD).innerHTML = ERROR_STR;
+            }
+        }
+	</script>
+
+<hr/><!--문제구분 하는 hr태그 -->
 </body>
 </html>
