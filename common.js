@@ -32,5 +32,10 @@ function printResult(outputTagIdName,resultNum){
 	document.getElementById(outputTagIdName).innerHTML = resultNum;
 }
 
+function deleteLastChar(inputStr){
+	return inputStr.substr(0,(inputStr.length -1));
+}
 
-
+function setInputValue(inputTagName,value){
+	document.getElementById(inputTagName).value = value;
+}

@@ -5,37 +5,61 @@
     <script type="text/javascript" src="common.js"></script>
 </head>
 <body>
-    <h3>597 : 문자열1 - 자가진단5</h3><br/>
-    <h5>두 개의 문자열을 입력받아서 두 문자열의 길이의 합을 출력하는 프로그램을 작성하시오.
+    <h3>154 : 배열1 - 형성평가5 변형!!!!!!!!!!!!!!!!!!!!!!!</h3><br/>
+    <h5>6명의 몸무게를 입력받아 몸무게의 평균을 출력하는 프로그램을 작성하시오. 
+출력은 반올림하여 소수 첫째자리까지로 한다.</h5>
 
-각 문자열의 길이는 20자 미만이다.</h5>
-
-    <h6>입력 예 : </h6><p/>
-    <h6>Korean
-English</h6>
+    <h6>입력 예 : 공백으로 구분, '.' 제외 문자 들어올 시 alert 띄우고 입력된 문자 지움</h6><p/>
+    <h6>23.2 39.6 66.4 50.0 45.6 48.0</h6>
     <h6>출력 예 : </h6><p/>
-    <h6>13</h6>
+    <h6>
+        인원수 : N 명 <p/>
+        평균 : avg(N);
+    </h6>
 
     <h2>풀이 -------------------------------------------------</h2>
     <!-- 문제 풀기 -->
     <!--입력부-->
-    Number1 : <input type="text" id="input1"/></p>
-    Number2 : <input type="text" id="input2"/></p>
-    <button onclick="solve597()">입력</button>
+    Number1 : <input type="text" id="input1" onkeyup="validateKey(event)"/></p>
+    <button onclick="solve154()">입력</button>
     <!--출력부-->
-    <p id="result534"></p>
+    <p id="result154"></p>
     <script>
-        function solve597(){
+        function validateKey(event){
+            var keyCode = event.which? event.which : event.keyCode;
+            console.log("keyCode : " + keyCode);
+
+            // 숫자, '.', 공백(space), backspace 이외 입력 되었을 때
+            /*
+            입력 가능한 값 : 키패드의 번호(0~9:96~105), 
+                          일반 번호(0~9:48~57),
+                          소수점('.':190),
+                          공백(' ':32), 
+                          backspace(<- : 8) 
+            */
+            var validKeys = "48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,190,8,32";
+
+            console.log("search value : " + validKeys.search(keyCode));
+            if(validKeys.search(keyCode) <= -1) {
+                alert('invalidKey! : ' + keyCode);
+                var inputStr = getStringOfTag('input1');
+                var validateStr = deleteLastChar(inputStr);
+                setInputValue('input1',validateStr);
+            }
+        }
+
+        function solve154(){
             var input1 = new String(getStringOfTag('input1'));
-            var input2 = new String(getStringOfTag('input2'));
 
-            var num1 = input1.length;
-            var num2 = input2.length;
-            console.log(num1 + ", " + num2);
+            var kgArr = input1.split(" ");
+            var sum = 0;
+            for (var i = 0; i < kgArr.length; i++) {
+                sum += Number(kgArr[i]);
+            }
 
-            var result = input1.length + input2.length;
+            var avg = sum / kgArr.length;
 
-            printResult('result534',result);
+            printResult('result154',"인원수 : " + kgArr.length + "<br/>" + "평균 : " + avg.toFixed(1));
         }
     </script>
 
