@@ -15,7 +15,7 @@ function division(num1,num2){
 	return num1 / num2;
 }
 
-function getValueOfTag(tagIdName){
+function getNumberOfTag(tagIdName){
 	return Number(document.getElementById(tagIdName).value);
 }
 

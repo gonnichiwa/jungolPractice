@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+    <h3>593 : 문자열1 - 자가진단1</h3><br/>
+    <h5>33부터 127 까지의 숫자를 계속 입력받아 입력받은 숫자의 아스키코드에 해당하는 문자를 출력하다가 범위를 벗어나는 입력이 들어오면 종료하는 프로그램을 작성하시오.</h5>
+
+    <h6>입력 예 : </h6><p/>
+    <h6>66</h6>
+    <h6>출력 예 : </h6><p/>
+    <h6>B</h6>
+
+    <h2>풀이 -------------------------------------------------</h2>
+    <!-- 문제 풀기 -->
+    <!--입력부-->
+    Number1 : <input type="text" id="input1"/></p>
+    <button onclick="solve593()">입력</button>
+    <!--출력부-->
+    <p id="result593"></p>
+    <script>
+        function solve593(){
+            var input1 = getNumberOfTag('input1');
+            console.log("input1 : " + input1);
+
+            if(input1 < 33 || input1 > 127 ){
+                var errorMsg = "error";
+                printResult('result593',errorMsg);   
+            } else {
+                var result = String.fromCharCode(input1);
+                printResult('result593',result);    
+            }
+            console.log("result : " + result);
+
+            
+        }
+    </script>
+
+</body>
+</html>
